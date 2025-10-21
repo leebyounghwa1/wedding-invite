@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>우리 결혼합니다 💍</title>
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            background-color: #faf9f8;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 30px 20px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        .text-section {
+            max-width: 750px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .text-section h2 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .text-section p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.95em;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8em; }
+            .gallery img { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>결혼합니다</h1>
+    <p>2025년 11월 22일, 토요일 오후 1시<br>서울 ○○웨딩홀 3층 라벤더홀</p>
+</header>
+
+<section class="gallery">
+    <img src="img1.jpg" alt="사진1">
+    <img src="img2.jpg" alt="사진2">
+    <img src="img3.jpg" alt="사진3">
+    <img src="img4.jpg" alt="사진4">
+    <img src="img5.jpg" alt="사진5">
+    <img src="img6.jpg" alt="사진6">
+    <img src="img7.jpg" alt="사진7">
+    <img src="img8.jpg" alt="사진8">
+    <img src="img9.jpg" alt="사진9">
+    <img src="img10.jpg" alt="사진10">
+</section>
+
+<section class="text-section">
+    <h2>소중한 인연, 함께한 시간</h2>
+    <p>김철수 · 이영희의 장남 <strong>김민준</strong><br>박영수 · 최미정의 장녀 <strong>박서연</strong></p>
+    <p>두 사람이 새로운 인생을 함께 걸어가려 합니다.<br>서로의 따뜻한 사랑으로 아름다운 가정을 이루겠습니다.</p>
+    <p>스몰웨딩으로 조촐히 진행되어<br>모든 분을 초대하지 못하는 점 양해 부탁드립니다.<br>
+        따뜻한 마음으로 축하해 주시면 감사하겠습니다.</p>
+</section>
+
+<footer>
+    © 2025 Minjun & Seoyeon Wedding Invitation
+</footer>
+
+<script>
+    // 단순한 fade-in 효과
+    const imgs = document.querySelectorAll('.gallery img');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.style.opacity = 1;
+        });
+    }, { threshold: 0.2 });
+
+    imgs.forEach(img => {
+        img.style.opacity = 0;
+        img.style.transition = 'opacity 1s ease';
+        observer.observe(img);
+    });
+</script>
+</body>
+</html>
