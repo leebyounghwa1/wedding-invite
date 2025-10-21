@@ -1,7 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <h1 style="
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            background-color: #faf9f8;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 30px 20px;
+        }
+
+        /* 상단 큰 영어 타이틀 */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-style: italic;
+            color: #2f2f2f;
+            margin: 80px 0 30px 0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* 갤러리: 모바일 1열 기본 */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;   /* 모바일 1열 */
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 4 / 3;          /* 일정 비율 유지 */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            opacity: 0;                   /* 페이드인용 초기값 */
+        }
+        .gallery img:hover { transform: scale(1.02); }
+
+        /* 태블릿 2열 */
+        @media (min-width: 640px) {
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+        /* 데스크탑 4열 */
+        @media (min-width: 1024px) {
+            .gallery { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .text-section {
+            max-width: 750px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .text-section h2 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+        .text-section p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.95em;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<header>
+<!--    <h1 class="hero-title">Weddings &amp; Events</h1>-->
+    <h1 style="
     font-family: 'Playfair Display', serif;
     font-size: 3.5em;
     font-style: italic;
@@ -10,22 +91,21 @@
     text-align: center;
     letter-spacing: 2px;
   ">
-    Weddings & Events
-  </h1>
+        Weddings & Events
+    </h1>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-
 </header>
 
 <section class="gallery">
-    <img src="img1.jpg" alt="사진1">
-    <img src="img2.jpg" alt="사진2">
-    <img src="img3.jpg" alt="사진3">
-    <img src="img4.jpg" alt="사진4">
-    <img src="img5.jpg" alt="사진5">
-    <img src="img6.jpg" alt="사진6">
-    <img src="img7.jpg" alt="사진7">
-    <img src="img8.jpg" alt="사진8">
-    <img src="img9.jpg" alt="사진9">
+    <img src="img1.jpg"  alt="사진1">
+    <img src="img2.jpg"  alt="사진2">
+    <img src="img3.jpg"  alt="사진3">
+    <img src="img4.jpg"  alt="사진4">
+    <img src="img5.jpg"  alt="사진5">
+    <img src="img6.jpg"  alt="사진6">
+    <img src="img7.jpg"  alt="사진7">
+    <img src="img8.jpg"  alt="사진8">
+    <img src="img9.jpg"  alt="사진9">
     <img src="img10.jpg" alt="사진10">
 </section>
 
@@ -38,11 +118,11 @@
 </section>
 
 <footer>
-    © 2025 Minjun & Seoyeon Wedding Invitation
+    © 2025 Minjun &amp; Seoyeon Wedding Invitation
 </footer>
 
 <script>
-    // 단순한 fade-in 효과
+    // 스크롤 시 이미지 페이드인
     const imgs = document.querySelectorAll('.gallery img');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(e => {
@@ -51,11 +131,9 @@
     }, { threshold: 0.2 });
 
     imgs.forEach(img => {
-        img.style.opacity = 0;
         img.style.transition = 'opacity 1s ease';
         observer.observe(img);
     });
 </script>
 </body>
 </html>
-
